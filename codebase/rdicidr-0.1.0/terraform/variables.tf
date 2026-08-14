@@ -12,8 +12,8 @@ variable "app_name" {
 
 variable "container_image" {
   type        = string
-  description = "ECR image URI"
-  default     = "123456789012.dkr.ecr.us-east-1.amazonaws.com/rdicidr:latest"
+  description = "ECR image URI. When empty, defaults to the Terraform-managed ECR repository's :latest tag."
+  default     = ""
 }
 
 variable "container_port" {
@@ -25,7 +25,7 @@ variable "container_port" {
 variable "health_check_path" {
   type        = string
   description = "Health check endpoint path"
-  default     = "/healthz"
+  default     = "/health"
 }
 
 variable "desired_count" {
